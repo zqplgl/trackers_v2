@@ -19,6 +19,14 @@ namespace tracker
         int start_frame;
         int end_frame;
         int cls;
+        bool operator ==(Tracker const& t) const
+        {
+            return this->id==t.id && this->cls==t.cls;
+        }
+        bool operator !=(Tracker const& t) const
+        {
+            return this->id!=t.id || this->cls!=t.cls;
+        }
     };
 
     class ITrackers
