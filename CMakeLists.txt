@@ -6,6 +6,6 @@ file(GLOB src src/*.cpp)
 
 include_directories(./include)
 
-find_package(OpenCV)
+find_package(OpenCV 3.2 EXACT)
 add_library(TrackDP SHARED ${src})
 target_link_libraries(TrackDP ${OpenCV_LIBS})

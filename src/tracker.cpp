@@ -99,7 +99,22 @@ namespace tracker
             }
             else
             {
+                Object obj;
+                obj.second = trackers_running[i]->tracker.cls;
+                obj.first = trackers_running[i]->tracker.track.back();
+
+                //int start_frame = trackers_running[i]->tracker.start_frame;
+                //int end_frame = trackers_running[i]->tracker.end_frame;
+                //int track_size = trackers_running[i]->tracker.track.size();
+                //cout<<"befor update: "<<start_frame<<"\t"<<end_frame<<"\t"<<track_size<<endl;
+
+                for(int j=0; j<trackers_running[i]->m_skippedFrames; ++j)
+                {
+                    trackers_running[i]->Update(obj,frame_index);
+                }
+
                 trackers_running[i]->m_skippedFrames = 0;
+
                 trackers_running[i]->Update(objects[assignment[i]],frame_index);
             }
 
